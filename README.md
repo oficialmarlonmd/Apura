@@ -1,6 +1,10 @@
-# verificAI — Fake Eyes / Apura
+# Apura / verificAI — Fake Eyes
 
-Sistema de apoio à avaliação de notícias e alegações em língua portuguesa, integrando backend **Django + Django REST Framework**, modelo de NLP **BERTimbau V4 (com fatiamento determinístico e tokens de separação `[SEP]`)** e frontend **ApuraWeb (React 19 + Vite 8)**.
+Sistema de apoio à avaliação de notícias e alegações em língua portuguesa, integrando backend **Django + Django REST Framework**, modelo de NLP/Machine Learning **BERTimbau V4 (com fatiamento determinístico e tokens de separação `[SEP]`)** e frontend **ApuraWeb (React 19 + Vite 8)**.
+
+> 👤 **Engenharia Principal (Backend & Machine Learning):** Marlon Marques ([@oficialmarlonmd](https://github.com/oficialmarlonmd))  
+> 🤗 **Modelo Publicado:** [`oficialmarlon/bertimbau-fakenews-detector-v4`](https://huggingface.co/oficialmarlon/bertimbau-fakenews-detector-v4) (Hugging Face)  
+> 📖 **Detalhamento Técnico de Autoria:** Veja [AUTORIA_E_DESENVOLVIMENTO.md](AUTORIA_E_DESENVOLVIMENTO.md) para a especificação completa de responsabilidades, decisões arquiteturais e histórico de commits.
 
 Plano de entrega por etapas da especificação: [TASKS.md](TASKS.md).
 
@@ -33,6 +37,7 @@ verificAI/
 ├── docker-compose.yml          # Orquestração (db, web, nginx/frontend)
 ├── Dockerfile                  # Imagem do backend Django
 ├── requirements.txt            # Dependências Python
+├── AUTORIA_E_DESENVOLVIMENTO.md # Relatório técnico de contribuições e autoria
 └── .env.example
 ```
 
@@ -375,3 +380,26 @@ cd frontend
 npm test               # Executa os testes automatizados
 npm run check          # Lint + typecheck + testes + build de produção
 ```
+
+---
+
+## Autoria e Responsabilidade Técnica
+
+O projeto **Apura** foi projetado com foco em rigor metodológico e transparência científica.
+
+- **Concepção, Backend & Machine Learning (Engenheiro Responsável):**  
+  **Marlon Marques** — [@oficialmarlonmd](https://github.com/oficialmarlonmd)  
+  *Responsável direto por:*
+  - Arquitetura do backend Django e APIs RESTful v1.
+  - Fine-tuning, empacotamento e publicação do modelo **BERTimbau V4** ([Hugging Face Hub](https://huggingface.co/oficialmarlon/bertimbau-fakenews-detector-v4)).
+  - Lógica de fatiamento determinístico com stride e preservação de prefixo jornalístico (`[CLS]`, `[SEP]`).
+  - Motor probabilístico de governança de risco e regra de abstenção (RF14).
+  - Pipeline de extração web com Trafilatura e defesas contra SSRF.
+  - Orquestração multi-fontes de checagem (Google Fact Check, Projeto Comprova, Boatos.org, Wikipedia).
+  - Salvaguardas epistemológicas contra alucinações de LLM e detecção contextual de paródia/sátira.
+
+- **Colaboradores do Projeto:**
+  - Front-end e extensão web integrados com a colaboração da equipe original (ver histórico de commits do repositório).
+
+Para uma auditoria aprofundada de todas as decisões técnicas, consulte [AUTORIA_E_DESENVOLVIMENTO.md](AUTORIA_E_DESENVOLVIMENTO.md).
+
