@@ -1,4 +1,4 @@
-# Apura / verificAI — Fake Eyes
+# Apura / Fake Eyes
 
 Sistema de apoio à avaliação de notícias e alegações em língua portuguesa, integrando backend **Django + Django REST Framework**, modelo de NLP/Machine Learning **BERTimbau V4 (com fatiamento determinístico e tokens de separação `[SEP]`)** e frontend **ApuraWeb (React 19 + Vite 8)**.
 
